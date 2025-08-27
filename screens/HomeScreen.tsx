@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BellIcon, CashIcon, ChevronRightIcon, CibilScoreIcon, EducationIcon, BillsAndRechargesIcon, PayContactsIcon, RewardsIcon, StoreIcon, BankIcon, CheckCircleIcon } from '../constants/icons';
 import { Screen } from '../types';
@@ -5,16 +6,14 @@ import Card from '../components/Card';
 
 const PromoCard: React.FC<{
   title: string;
-  subtitle: string;
   onClick: () => void;
   children: React.ReactNode;
   className?: string;
-}> = ({ title, subtitle, onClick, children, className }) => (
-    <button onClick={onClick} className={`relative rounded-xl overflow-hidden h-28 w-full shadow-lg text-white font-bold p-3 flex flex-col justify-between text-left bg-gray-800 ${className}`}>
+}> = ({ title, onClick, children, className }) => (
+    <button onClick={onClick} className={`relative rounded-xl overflow-hidden h-28 w-full shadow-lg text-white font-bold p-3 flex flex-col justify-end text-left bg-gray-800 ${className}`}>
         {children}
         <div className="relative z-10">
-            <p className="text-xs font-light uppercase tracking-wider">{subtitle}</p>
-            <span className="text-md font-semibold">{title}</span>
+            <span className="text-base font-semibold">{title}</span>
         </div>
     </button>
 );
@@ -102,18 +101,14 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate, onStartCashJourney,
         
         {/* Shopping Cards */}
         <div className="flex space-x-2">
-            <PromoCard title="Gift Cards" subtitle="NOW LIVE" onClick={() => onNavigate(Screen.GiftCardStore)} className="flex-1">
-                <div className="absolute top-0 right-0 w-24 h-24">
-                    <img src="https://assets-global.website-files.com/62325221c8195a72de754d92/62325221c8195a56d9754fde_Uber_Logo_2018.png" className="absolute top-2 -right-2 w-10 h-10 rounded-lg transform -rotate-12 shadow-lg" />
-                    <img src="https://logo.clearbit.com/zomato.com" className="absolute top-8 right-8 w-12 h-12 rounded-lg transform rotate-12 shadow-lg" />
-                    <img src="https://logo.clearbit.com/zeptonow.com" className="absolute top-16 -right-1 w-9 h-9 rounded-lg transform -rotate-6 shadow-lg" />
-                </div>
+            <PromoCard title="Gift Cards" onClick={() => onNavigate(Screen.GiftCardStore)} className="flex-1">
+                 <img src="https://images.unsplash.com/photo-1555529771-835f59fc5efe?q=80&w=2940&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover opacity-30" alt="" />
             </PromoCard>
-            <PromoCard title="Store" subtitle="DEAL OF THE DAY" onClick={() => {}} className="flex-1">
-                <img src="https://images.unsplash.com/photo-1570857502809-08184874388e?q=80&w=2592&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover opacity-30" />
+            <PromoCard title="Store" onClick={() => {}} className="flex-1">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2940&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover opacity-30" alt="" />
             </PromoCard>
-             <PromoCard title="Travel" subtitle="BOOK NOW" onClick={() => {}} className="flex-1">
-                <img src="https://images.unsplash.com/photo-1502920514313-52581002a659?q=80&w=2940&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover opacity-30" />
+             <PromoCard title="Cash at Home" onClick={() => onNavigate(Screen.CashAtHome)} className="flex-1">
+                <img src="https://images.unsplash.com/photo-1593672715438-d88a706299a5?q=80&w=2811&auto=format&fit=crop" className="absolute inset-0 w-full h-full object-cover opacity-30" alt="" />
             </PromoCard>
         </div>
 
@@ -155,12 +150,12 @@ const HomeScreen: React.FC<HomeScreenProps> = ({ onNavigate, onStartCashJourney,
         {/* Upcoming Bills */}
         <Card title="UPCOMING BILLS (1)" actionText="view all">
             <div className="flex items-center space-x-4">
-                <img src="https://logo.clearbit.com/rblbank.com" className="w-10 h-10 rounded-full" />
+                <img src="https://logo.clearbit.com/rblbank.com" className="w-10 h-10 rounded-full" alt="RBL Bank Logo" />
                 <div className="flex-grow">
                     <p className="font-bold text-gray-800">RBL Bank</p>
                     <p className="text-sm text-gray-500">XXXX XXXX 2299</p>
                 </div>
-                <button className="bg-gray-800 text-white font-bold py-2 px-4 rounded-lg">
+                <button className="bg-white text-secondary font-bold py-2 px-4 rounded-lg border border-secondary/50 hover:bg-secondary/10 transition-colors">
                     Pay ₹17,001
                 </button>
             </div>

@@ -34,7 +34,7 @@ const CashflowScreen: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                     <ArrowLeftIcon className="w-6 h-6 text-gray-800" />
                 </button>
                 <h1 className="font-bold text-lg text-gray-800">Cashflow</h1>
-                <button className="flex items-center space-x-1 font-semibold text-gray-800">
+                <button className="flex items-center space-x-1 font-semibold text-gray-800 text-sm">
                     <span>Aug '25</span>
                     <ChevronDownIcon className="w-5 h-5"/>
                 </button>

@@ -12,7 +12,7 @@ const MoreScreen: React.FC<MoreScreenProps> = ({ onNavigate }) => {
   return (
     <>
       <header className="p-4 pt-6 bg-white flex-shrink-0 shadow-sm z-10 sticky top-0">
-        <h1 className="text-xl font-bold text-center text-gray-800">More</h1>
+        <h1 className="text-lg font-bold text-center text-gray-800">More</h1>
       </header>
       <div className="p-4 space-y-4">
         {serviceData.map((category: ServiceCategory) => (

@@ -21,7 +21,7 @@ const ManageAccountsScreen: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             <main className="flex-grow overflow-y-auto px-4 pb-4 space-y-5">
                 <div className="bg-gradient-to-r from-blue-100 to-purple-100 p-4 rounded-2xl flex justify-between items-center">
                     <div>
-                        <p className="font-semibold">money-wiser with FindiBankit</p>
+                        <p className="font-semibold text-sm">money-wiser with FindiBankit</p>
                         <button className="text-sm bg-secondary text-white font-semibold px-4 py-1.5 rounded-lg mt-2">Invite Now</button>
                     </div>
                     <div className="w-16 h-16">
@@ -34,25 +34,25 @@ const ManageAccountsScreen: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                      <div className="divide-y divide-gray-100">
                         <button className="w-full flex items-center text-left py-3">
                            <BankIcon className="w-6 h-6 text-gray-600 mr-4" />
-                           <span className="flex-grow font-semibold">Bank Accounts</span>
+                           <span className="flex-grow font-semibold text-sm">Bank Accounts</span>
                            <ChevronRightIcon className="w-5 h-5 text-gray-400" />
                         </button>
                          <button className="w-full flex items-center text-left py-3">
                            <HelpIcon className="w-6 h-6 text-gray-600 mr-4" />
-                           <span className="flex-grow font-semibold">Help & FAQs</span>
+                           <span className="flex-grow font-semibold text-sm">Help & FAQs</span>
                            <ChevronRightIcon className="w-5 h-5 text-gray-400" />
                         </button>
                          <button className="w-full flex items-center text-left py-3">
                            <UserIcon className="w-6 h-6 text-gray-600 mr-4" />
-                           <span className="flex-grow font-semibold">Your Details</span>
+                           <span className="flex-grow font-semibold text-sm">Your Details</span>
                            <ChevronRightIcon className="w-5 h-5 text-gray-400" />
                         </button>
                      </div>
                 </div>
 
                 <div className="text-center py-6">
-                    <h3 className="font-bold text-lg">Your Data is</h3>
-                    <h3 className="font-bold text-lg text-green-600">Safe with us</h3>
+                    <h3 className="font-bold text-base">Your Data is</h3>
+                    <h3 className="font-bold text-base text-green-600">Safe with us</h3>
                     <p className="text-xs text-gray-500 mt-2">Powered by</p>
                     <p className="text-xs text-gray-500">RBI licensed Account Aggregators</p>
                 </div>

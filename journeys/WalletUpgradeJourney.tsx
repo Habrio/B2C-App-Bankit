@@ -59,7 +59,7 @@ const WalletUpgradeJourney: React.FC<WalletUpgradeJourneyProps> = ({ onClose, on
                         <ArrowLeftIcon className="w-6 h-6 text-gray-600" />
                     </button>
                  ) : <div className="w-8 h-8"></div>}
-                <h2 className="text-xl font-bold text-secondary text-center">Upgrade Wallet KYC</h2>
+                <h2 className="text-lg font-bold text-secondary text-center">Upgrade Wallet KYC</h2>
                 <button onClick={onClose} className="p-1 rounded-full hover:bg-gray-100">
                     <XIcon className="w-6 h-6 text-gray-600" />
                 </button>
@@ -67,7 +67,7 @@ const WalletUpgradeJourney: React.FC<WalletUpgradeJourneyProps> = ({ onClose, on
             
             {step === 'AADHAAR' && (
                 <>
-                    <p className="text-gray-600 mb-8 text-center">
+                    <p className="text-gray-600 mb-8 text-center text-sm">
                         Enter your Aadhaar number to complete e-KYC and unlock higher limits.
                     </p>
                     <form onSubmit={handleAadhaarSubmit} className="flex flex-col flex-grow space-y-6">
@@ -78,7 +78,7 @@ const WalletUpgradeJourney: React.FC<WalletUpgradeJourneyProps> = ({ onClose, on
                                 id="aadhaar"
                                 value={aadhaar}
                                 onChange={(e) => setAadhaar(e.target.value.replace(/\D/g, ''))}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary tracking-widest"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary tracking-widest text-sm"
                                 placeholder="xxxx xxxx xxxx"
                                 maxLength={12}
                                 required
@@ -98,7 +98,7 @@ const WalletUpgradeJourney: React.FC<WalletUpgradeJourneyProps> = ({ onClose, on
 
             {step === 'OTP' && (
                  <>
-                    <p className="text-gray-600 mb-8 text-center">
+                    <p className="text-gray-600 mb-8 text-center text-sm">
                         Enter the 6-digit OTP sent to your Aadhaar-linked mobile number.
                     </p>
                     <form onSubmit={handleOtpSubmit} className="flex flex-col flex-grow space-y-6">
@@ -110,7 +110,7 @@ const WalletUpgradeJourney: React.FC<WalletUpgradeJourneyProps> = ({ onClose, on
                                 id="otp"
                                 value={otp}
                                 onChange={(e) => setOtp(e.target.value.replace(/\D/g, ''))}
-                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary text-center text-2xl tracking-[1.5rem]"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-primary focus:border-primary text-center text-xl tracking-[1.5rem]"
                                 maxLength={6}
                                 required
                             />

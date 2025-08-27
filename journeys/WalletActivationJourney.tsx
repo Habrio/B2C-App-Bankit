@@ -30,13 +30,13 @@ const WalletActivationJourney: React.FC<WalletActivationJourneyProps> = ({ onClo
     <div className="absolute inset-0 bg-gray-800 bg-opacity-75 z-50 flex items-center justify-center">
         <div className="bg-white w-full h-full flex flex-col p-6">
             <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-secondary">Activate Your Wallet</h2>
+                <h2 className="text-xl font-bold text-secondary">Activate Your Wallet</h2>
                 <button onClick={onClose} className="p-1 rounded-full hover:bg-gray-100">
                     <XIcon className="w-6 h-6 text-gray-600" />
                 </button>
             </div>
 
-            <p className="text-gray-600 mb-8">
+            <p className="text-gray-600 mb-8 text-sm">
                 Provide your basic details as per government regulations to activate your PPI wallet.
             </p>
 

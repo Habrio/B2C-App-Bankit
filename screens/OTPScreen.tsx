@@ -62,7 +62,7 @@ const OTPScreen: React.FC<OTPScreenProps> = ({ mobileNumber, onVerify, onBack })
 
       <div className="flex-grow flex flex-col items-center justify-center text-center -mt-12">
         <div className="w-full max-w-xs">
-          <h1 className="text-xl font-bold text-gray-900">Verify your number</h1>
+          <h1 className="text-lg font-bold text-gray-900">Verify your number</h1>
           <p className="text-sm text-gray-500 mt-1">
             Enter the 6-digit code sent to <span className="font-semibold text-gray-700">{formattedNumber}</span>
           </p>
@@ -70,7 +70,7 @@ const OTPScreen: React.FC<OTPScreenProps> = ({ mobileNumber, onVerify, onBack })
           <div className="relative mt-8" onClick={() => inputRef.current?.focus()}>
               <div className="flex justify-center space-x-2">
                   {Array.from({length: OTP_LENGTH}).map((_, index) => (
-                      <div key={index} className={`w-12 h-14 border-2 rounded-lg flex items-center justify-center text-2xl font-bold transition-colors ${otp.length === index ? 'border-primary' : 'border-gray-200'}`}>
+                      <div key={index} className={`w-12 h-14 border-2 rounded-lg flex items-center justify-center text-xl font-bold transition-colors ${otp.length === index ? 'border-primary' : 'border-gray-200'}`}>
                           {otp[index] || ''}
                       </div>
                   ))}

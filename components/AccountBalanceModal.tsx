@@ -31,10 +31,10 @@ const AccountBalanceModal: React.FC<AccountBalanceModalProps> = ({ onClose, tota
                         <div key={account.name} className="flex items-center p-3 border border-gray-200 rounded-lg">
                              <img src={account.logo} alt={account.name} className="w-10 h-10 rounded-lg mr-4" />
                              <div className="flex-grow">
-                                <p className="font-bold text-gray-800">{account.name} <span className="text-gray-500 font-normal">{account.number}</span></p>
+                                <p className="font-bold text-gray-800 text-sm">{account.name} <span className="text-gray-500 font-normal text-sm">{account.number}</span></p>
                                 <p className="text-xs text-gray-400">{account.timestamp}</p>
                              </div>
-                             <p className="font-bold">₹{account.balance}</p>
+                             <p className="font-bold text-sm">₹{account.balance}</p>
                         </div>
                     ))}
                 </div>
@@ -43,7 +43,7 @@ const AccountBalanceModal: React.FC<AccountBalanceModalProps> = ({ onClose, tota
                     <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center mr-4 text-secondary font-bold text-xl">
                         +
                     </div>
-                    <span className="font-semibold text-secondary">Add Bank Account</span>
+                    <span className="font-semibold text-secondary text-sm">Add Bank Account</span>
                 </button>
             </div>
         </div>

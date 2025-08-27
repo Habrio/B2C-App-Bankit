@@ -26,10 +26,10 @@ const LoginScreen: React.FC<LoginScreenProps> = ({ onSubmit }) => {
     <div className="flex flex-col h-full bg-white p-8">
       <div className="flex-grow flex flex-col items-center justify-center text-center">
         <FindiBankitLogo />
-        <h1 className="text-3xl font-bold text-gray-800 mt-4">FindiBankit</h1>
+        <h1 className="text-2xl font-bold text-gray-800 mt-4">FindiBankit</h1>
         
         <div className="w-full max-w-xs mt-12 text-left">
-            <h2 className="text-xl font-bold text-gray-900">Enter your mobile number</h2>
+            <h2 className="text-lg font-bold text-gray-900">Enter your mobile number</h2>
             <p className="text-sm text-gray-500 mt-1">We'll send an OTP to verify your number.</p>
         
             <form onSubmit={handleSubmit} className="mt-6">

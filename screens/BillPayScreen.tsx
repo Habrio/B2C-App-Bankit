@@ -13,11 +13,11 @@ const BillPayScreen: React.FC<BillPayScreenProps> = ({ onBack }) => {
                 <button onClick={onBack} className="p-1 rounded-full hover:bg-gray-100">
                     <ArrowLeftIcon className="w-6 h-6 text-gray-800" />
                 </button>
-                <h1 className="text-xl font-bold text-gray-800">Bill Pay & Recharges</h1>
+                <h1 className="text-lg font-bold text-gray-800">Bill Pay & Recharges</h1>
             </header>
 
             <div className="p-4">
-                <h2 className="text-2xl font-semibold mb-2">here you can start a new payment</h2>
+                <h2 className="text-xl font-semibold mb-2">here you can start a new payment</h2>
                 <div className="relative">
                     <SearchIcon className="w-5 h-5 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
                     <input

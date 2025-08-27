@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { Screen } from '../types';
-import { HomeIcon, WalletIcon, HistoryIcon, GridIcon, UpiNavIcon } from '../constants/icons';
+import { HomeIcon, HistoryIcon, GridIcon, UpiNavIcon, WalletIcon } from '../constants/icons';
 
 interface BottomNavProps {
   activeScreen: Screen;

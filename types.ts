@@ -16,6 +16,9 @@ export enum Screen {
     Highlights = 'Highlights',
     ManageAccounts = 'Manage Accounts',
     StatementScreen = 'Statement Screen',
+    CreditScore = 'Credit Score',
+    CashAtHome = 'Cash At Home',
+    CashAtHomeHistory = 'Cash At Home History',
 }
 
 export interface Service {
@@ -69,4 +72,32 @@ export interface CashEmiTransaction {
     amount: number;
     paidOn: string;
     isLate: boolean;
+}
+
+export interface CreditCard {
+  id: string;
+  bankName: string;
+  cardNetwork: 'Visa' | 'Mastercard' | 'RuPay' | 'Amex';
+  lastFourDigits: string;
+  cardHolderName: string;
+  dueAmount: number;
+  status: 'paid' | 'no_dues' | 'due';
+  cardArt: {
+    background: string;
+    logoUrl: string;
+    textColor: string;
+    logoClass?: string;
+  };
+}
+
+export interface CashAtHomeOrder {
+  id: string;
+  amount: number;
+  fee: number;
+  totalDebited: number;
+  address: string;
+  status: 'pending' | 'out_for_delivery' | 'delivered';
+  orderDate: string;
+  deliveryDate?: string;
+  deliveryAgent?: { name: string; photoUrl: string; };
 }

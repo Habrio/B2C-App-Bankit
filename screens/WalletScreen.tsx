@@ -9,6 +9,8 @@ interface WalletScreenProps {
     onStartWalletUpgrade: () => void;
     onNavigate: (screen: Screen) => void;
     onBack: () => void;
+    onAddMoney: () => void;
+    walletBalance: number;
 }
 
 const QuickActionItem: React.FC<{icon: React.ReactNode, title: string, subtitle: string, onClick: () => void}> = ({ icon, title, subtitle, onClick }) => (
@@ -17,8 +19,8 @@ const QuickActionItem: React.FC<{icon: React.ReactNode, title: string, subtitle:
             {icon}
         </div>
         <div className="flex-grow">
-            <h4 className="font-semibold text-gray-800">{title}</h4>
-            <p className="text-sm text-gray-500">{subtitle}</p>
+            <h4 className="font-semibold text-gray-800 text-sm">{title}</h4>
+            <p className="text-xs text-gray-500">{subtitle}</p>
         </div>
         <ChevronRightIcon className="w-5 h-5 text-gray-400" />
     </button>
@@ -29,9 +31,11 @@ interface ActivatedWalletViewProps {
     onStartWalletUpgrade: () => void;
     onNavigate: (screen: Screen) => void;
     onBack: () => void;
+    onAddMoney: () => void;
+    walletBalance: number;
 }
 
-const ActivatedWalletView: React.FC<ActivatedWalletViewProps> = ({ isWalletUpgraded, onStartWalletUpgrade, onNavigate, onBack }) => {
+const ActivatedWalletView: React.FC<ActivatedWalletViewProps> = ({ isWalletUpgraded, onStartWalletUpgrade, onNavigate, onBack, onAddMoney, walletBalance }) => {
     const quickActions = [
         ...(isWalletUpgraded ? [] : [{ 
             title: 'upgrade wallet', 
@@ -89,18 +93,21 @@ const ActivatedWalletView: React.FC<ActivatedWalletViewProps> = ({ isWalletUpgra
                                 <div className="absolute -top-8 w-48 h-16 bg-gradient-to-t from-primary/50 to-primary/60 rounded-b-full"></div>
                                 <div className="absolute top-2 left-1/2 -translate-x-1/2 w-24 h-4 bg-gray-900/50 rounded-t-md border-b-2 border-gray-700"></div>
                                 
-                                <span className="text-5xl font-light tracking-tighter z-10">₹100.00</span>
+                                <span className="text-4xl font-light tracking-tighter z-10">₹{walletBalance.toFixed(2)}</span>
                                 <span className="text-sm font-semibold text-gray-300 z-10">WALLET BALANCE</span>
                              </div>
                         </div>
                     </div>
+                    <button onClick={onAddMoney} className="w-full max-w-xs mx-auto mt-4 bg-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-primary/90 transition-colors">
+                        Add Money
+                    </button>
                 </div>
             </div>
             
             {!isWalletUpgraded && (
                 <div className="bg-white p-6 mt-6">
-                    <h2 className="text-xl font-bold text-center text-gray-800">upgrade to a FindiBankit card</h2>
-                    <p className="text-center text-gray-500 mt-2">complete your full KYC to unlock higher limits and get your physical card.</p>
+                    <h2 className="text-lg font-bold text-center text-gray-800">upgrade to a FindiBankit card</h2>
+                    <p className="text-center text-gray-500 mt-2 text-sm">complete your full KYC to unlock higher limits and get your physical card.</p>
                     <button onClick={onStartWalletUpgrade} className="w-full bg-gray-900 text-white font-bold py-3 px-4 rounded-lg mt-6 hover:bg-gray-800 transition-all duration-300 flex items-center justify-center space-x-2">
                         <span>Upgrade in one click</span>
                         <ArrowLeftIcon className="w-5 h-5 transform rotate-180" />
@@ -124,14 +131,14 @@ const ActivatedWalletView: React.FC<ActivatedWalletViewProps> = ({ isWalletUpgra
 const InactiveWalletView: React.FC<{onActivate: () => void}> = ({ onActivate }) => (
     <>
         <header className="p-4 pt-6 bg-white flex-shrink-0 shadow-sm z-10">
-            <h1 className="text-xl font-bold text-center text-gray-800">Wallet</h1>
+            <h1 className="text-lg font-bold text-center text-gray-800">Wallet</h1>
         </header>
         <div className="p-6 flex flex-col items-center text-center flex-grow justify-center bg-gray-100">
             <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center">
                 <WalletIcon className="w-12 h-12 text-gray-400" />
             </div>
-            <h2 className="text-2xl font-bold text-gray-800 mt-6">Activate Your Wallet</h2>
-            <p className="text-gray-500 mt-2 mb-8 max-w-xs">
+            <h2 className="text-xl font-bold text-gray-800 mt-6">Activate Your Wallet</h2>
+            <p className="text-gray-500 mt-2 mb-8 max-w-xs text-sm">
                 Complete a simple KYC process to unlock seamless payments and exclusive offers.
             </p>
             <button 
@@ -145,10 +152,10 @@ const InactiveWalletView: React.FC<{onActivate: () => void}> = ({ onActivate }) 
 );
 
 
-const WalletScreen: React.FC<WalletScreenProps> = ({ isWalletActive, onActivateWallet, isWalletUpgraded, onStartWalletUpgrade, onNavigate, onBack }) => {
+const WalletScreen: React.FC<WalletScreenProps> = ({ isWalletActive, onActivateWallet, isWalletUpgraded, onStartWalletUpgrade, onNavigate, onBack, onAddMoney, walletBalance }) => {
   return (
     <div className="h-full flex flex-col bg-gray-100">
-        {isWalletActive ? <ActivatedWalletView isWalletUpgraded={isWalletUpgraded} onStartWalletUpgrade={onStartWalletUpgrade} onNavigate={onNavigate} onBack={onBack}/> : <InactiveWalletView onActivate={onActivateWallet} />}
+        {isWalletActive ? <ActivatedWalletView isWalletUpgraded={isWalletUpgraded} onStartWalletUpgrade={onStartWalletUpgrade} onNavigate={onNavigate} onBack={onBack} onAddMoney={onAddMoney} walletBalance={walletBalance} /> : <InactiveWalletView onActivate={onActivateWallet} />}
     </div>
   );
 };

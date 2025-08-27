@@ -48,7 +48,7 @@ const StatementScreen: React.FC<{ onBack: () => void }> = ({ onBack }) => {
                                 <p className="text-xs text-gray-500">{tx.date}</p>
                             </div>
                             <div className="text-right">
-                                <p className={`font-bold ${tx.type === 'debit' ? 'text-red-500' : 'text-green-500'}`}>
+                                <p className={`font-bold text-sm ${tx.type === 'debit' ? 'text-red-500' : 'text-green-500'}`}>
                                     ₹{tx.amount} {tx.type === 'debit' ? '↗' : '↙'}
                                 </p>
                                 <span className="text-xs bg-gray-100 text-gray-600 px-1.5 py-0.5 rounded">{tx.category}</span>
@@ -59,7 +59,7 @@ const StatementScreen: React.FC<{ onBack: () => void }> = ({ onBack }) => {
             </main>
 
             <footer className="absolute bottom-4 left-1/2 -translate-x-1/2 w-full max-w-xs px-4">
-                 <button className="w-full bg-secondary text-white font-bold py-3 rounded-lg shadow-lg">
+                 <button className="w-full bg-secondary text-white font-bold py-3 rounded-lg shadow-lg text-sm">
                     Download Statement
                 </button>
             </footer>

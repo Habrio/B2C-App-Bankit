@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { PurchasedGiftCard } from '../types';
 import { ArrowLeftIcon, XIcon, CopyIcon, InfoIcon } from '../constants/icons';
@@ -19,14 +20,16 @@ const GiftCardDetailView: React.FC<{ card: PurchasedGiftCard; onBack: () => void
             </header>
             
             <div className="flex-grow overflow-y-auto no-scrollbar">
-                <h2 className="text-xl font-bold mb-2">{card.brand.name} gift card</h2>
-                <div className="w-full aspect-video rounded-xl overflow-hidden bg-cover bg-center mb-4" style={{backgroundImage: `url(${card.brand.cardImage})`}}></div>
+                <h2 className="text-lg font-bold mb-2">{card.brand.name} gift card</h2>
+                <div className="w-full aspect-video rounded-xl overflow-hidden bg-gray-800 mb-4">
+                    <img src={card.brand.cardImage} alt={`${card.brand.name} Gift Card`} className="w-full h-full object-cover" />
+                </div>
                 
                 <div className="grid grid-cols-2 gap-4 my-6">
                     <div>
                         <p className="text-xs text-gray-400">code</p>
                         <div className="flex items-center space-x-2">
-                           <p className="font-mono font-semibold">{card.code}</p>
+                           <p className="font-mono font-semibold text-sm">{card.code}</p>
                            <button onClick={() => handleCopy(card.code, 'code')}>
                                {copied === 'code' ? <span className="text-green-400 text-xs">Copied!</span> : <CopyIcon className="w-4 h-4 text-gray-400" />}
                            </button>
@@ -35,7 +38,7 @@ const GiftCardDetailView: React.FC<{ card: PurchasedGiftCard; onBack: () => void
                      <div>
                         <p className="text-xs text-gray-400">pin</p>
                          <div className="flex items-center space-x-2">
-                           <p className="font-mono font-semibold">{card.pin}</p>
+                           <p className="font-mono font-semibold text-sm">{card.pin}</p>
                             <button onClick={() => handleCopy(card.pin, 'pin')}>
                                {copied === 'pin' ? <span className="text-green-400 text-xs">Copied!</span> : <CopyIcon className="w-4 h-4 text-gray-400" />}
                            </button>
@@ -44,7 +47,7 @@ const GiftCardDetailView: React.FC<{ card: PurchasedGiftCard; onBack: () => void
                 </div>
 
                 <div>
-                    <h3 className="font-bold mb-2">how to redeem</h3>
+                    <h3 className="font-bold mb-2 text-sm">how to redeem</h3>
                     <div className="space-y-4">
                         {card.brand.redemptionSteps.map((step, index) => (
                              <div key={index} className="flex items-start space-x-3">
@@ -90,7 +93,7 @@ const MyGiftCardsScreen: React.FC<MyGiftCardsScreenProps> = ({ purchasedGiftCard
     <div className="bg-gray-900 h-full text-white relative no-scrollbar">
       <header className="p-4 pt-6 flex-shrink-0 z-10 sticky top-0 bg-gray-900 shadow-md flex items-center space-x-4">
         <button onClick={onBack}><ArrowLeftIcon className="w-6 h-6" /></button>
-        <h1 className="text-xl font-bold text-center flex-grow">Your Gift Cards</h1>
+        <h1 className="text-lg font-bold text-center flex-grow">Your Gift Cards</h1>
         <div className="w-6"></div>
       </header>
       <div className="p-4 space-y-4 overflow-y-auto no-scrollbar">
@@ -101,8 +104,10 @@ const MyGiftCardsScreen: React.FC<MyGiftCardsScreenProps> = ({ purchasedGiftCard
         ) : (
             purchasedGiftCards.map(card => (
                 <button key={card.id} onClick={() => setSelectedCard(card)} className="w-full text-left">
-                     <h3 className="font-semibold mb-2">{card.brand.name} gift card</h3>
-                     <div className="w-full aspect-video rounded-xl overflow-hidden bg-cover bg-center" style={{backgroundImage: `url(${card.brand.cardImage})`}}></div>
+                     <h3 className="font-semibold mb-2 text-sm">{card.brand.name} gift card</h3>
+                     <div className="w-full aspect-video rounded-xl overflow-hidden bg-gray-800">
+                        <img src={card.brand.cardImage} alt={`${card.brand.name} gift card`} className="w-full h-full object-cover" />
+                     </div>
                 </button>
             ))
         )}

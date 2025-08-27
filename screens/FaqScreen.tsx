@@ -14,7 +14,7 @@ const FaqScreen: React.FC<FaqScreenProps> = ({ onBack }) => {
         <button onClick={onBack} className="p-1 rounded-full hover:bg-gray-100">
             <ArrowLeftIcon className="w-6 h-6 text-gray-800" />
         </button>
-        <h1 className="text-xl font-bold text-gray-800">FAQs</h1>
+        <h1 className="text-lg font-bold text-gray-800">FAQs</h1>
       </header>
       <div className="flex-grow overflow-y-auto p-4">
         {faqData.map(section => (
